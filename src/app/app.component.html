@@ -1,0 +1,29 @@
+<div class="app-wrapper">
+  <img
+    [src]="bg"
+    *ngFor="let bg of bgImages.reverse()"
+    class="bg-image"
+    (load)="onBGImageLoad($event)"
+    @bgAnim
+  >
+
+  <div class="btn btn-change-bg-img" (click)="changeBGImage()" *ngIf="!loadingBGImage" @changeBgBtn>
+    <span class="material-icons">refresh</span>
+  </div>
+  
+  <div class="top-section">
+    <h1>{{ dateTime | async | date:'HH:mm:ss' }}</h1>
+    <h2>{{ dateTime | async | date:'d MMMM y' }}</h2>
+  </div>
+
+  <div class="content-section" [@routeAnim]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+
+  <div class="bottom-section">
+    <app-tabs></app-tabs>
+  </div>
+
+  <app-notification></app-notification>
+
+</div>

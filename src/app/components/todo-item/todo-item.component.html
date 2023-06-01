@@ -1,0 +1,17 @@
+<div class="todo-item" [class.completed]="todo.completed">
+  <div class="check-box">
+    <span class="material-icons-outlined">check</span>
+  </div>
+  <p class="todo-text">{{todo.text}}</p>
+  <div class="todo-item-actions">
+    
+    <div class="btn todo-item-action-btn" (click)="$event.stopPropagation()">
+      <span class="material-icons" (click)="onEdit()">edit</span>
+    </div>
+
+    <div class="btn todo-item-action-btn">
+      <span class="material-icons" (click)="onDelete()">delete</span>
+    </div>
+
+  </div>
+</div>
